@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PERSONAL TANIMA FORMU</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        background-color: white;
+        width: 50%;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        background-color: orange;
+        padding: 10px;
+        border-radius: 10px 10px 0 0;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.5em;
+      }
+
+      header img {
+        margin-right: 15px;
+        border-radius: 10px;
+      }
+
+      section {
+        margin-top: 20px;
+      }
+
+      section div {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="password"],
+      input[type="number"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="date"],
+      input[type="color"],
+      input[type="file"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      textarea {
+        resize: none;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .buttons input {
+        width: 48%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+      }
+
+      input[type="submit"] {
+        background-color: #28a745;
+        color: white;
+      }
+
+      input[type="reset"] {
+        background-color: #dc3545;
+        color: white;
+      }
+
+      fieldset {
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+      }
+
+      legend {
+        font-weight: bold;
+      }
+
+      .radio-checkbox-group {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .radio-checkbox-group label {
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <img src="./IMAGES/maleDeveloper.jpg" alt="" width="150" />
+        PERSONEL TANIMA FORMU
+      </header>
+      <br />
+      <section>
+        <!-- bilgiler formun içine yazılıyor -->
+        <form action="./result.html">
+          <div>
+            <!-- label for ile input birbirine bağlandı bu şekilde -->
+            <label for="Ad">Adınız</label>
+            <input type="text" id="Ad" name="Ad" placeholder="Adınız" />
+          </div>
+
+          <div>
+            <label for="Soyad">Soyad</label>
+            <input type="text" id="Soyad" name="Soyad" />
+          </div>
+          <div>
+            <label for="email">E-mail</label>
+            <!-- required(gerekli) atribute ile kullanıcının bu alana giriş yapmasını zorunlu hale getirir -->
+            <input type="email" name="E-mail" id="email" required />
+          </div>
+          <div>
+            <label for="Şifre">Şifre</label>
+            <input type="Password" name="Şifre" id="Şifre" />
+          </div>
+          <div>
+            <label for="Telefon">Telefon</label>
+            <input
+              type="tel"
+              name="Telefon"
+              id="tel"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
+              placeholder="xxx-xxx-xx-xx"
+            />
+            <!-- placeholder kutunun içine yazı belirtir -->
+          </div>
+          <div>
+            <label for="Yaş">Yaş</label>
+            <input
+              type="Number"
+              name="Yaş"
+              id="Yaş"
+              placeholder="Yaşınız"
+              min="8"
+              max="40"
+            />
+            <!-- min ve max değerler sınır blirtir -->
+          </div>
+          <div>
+            <label for="Doğum Tarihi">Doğum Tarihi</label>
+            <input
+              type="date"
+              name="Doğum_Tarihi"
+              id="Doğum Tarihi"
+              min="1971-01-02"
+              max="2000-01-01"
+            />
+            <!-- date burdaki gibi sitildi ekliyor -->
+          </div>
+          <div>
+            <!-- radio tekbir seçenek seçilmesine olanak tanır ama name ler aynı olucak -->
+            <label for="Cinsiyet">Cinsiyet:</label>
+            <!--  -->
+            <input type="radio" name="Cinsiyet" id="Kadın" value="Kadın" />
+            <label for="Kadın">Kadın</label>
+            <!-- value kaydettikten sonra yazanın ne olması istediğimizi gösterir -->
+            <input type="radio" name="Cinsiyet" id="Erkek" value="Erkek" />
+            <label for="erkek">Erkek</label>
+          </div>
+
+          <div>
+            <label for="günler">Musait Olduğumuz Günler</label>
+            <input type="checkbox" name="Günler" id="cumartesi" value="cumartesi"/>
+            <label for="cumartesi">Cumartesi</label>
+            <input type="checkbox" name="Günler" id="pazar" value="pazar"/>
+            <label for="pazar">Pazar</label>
+          </div>
+          <div>
+            <label for="renk">Sevdiğiniz Renk:</label>
+            <input type="color" name="Renk" id="renk" />
+          </div>
+          <div>
+            <label for="foto">Fotoğraf Yükleyin</label>
+            <input type="file" name="Fotoğraf" id="foto" />
+          </div>
+          <div>
+            <label for="maaş">Maaş</label>
+            <input
+              type="range"
+              name="Miktar"
+              id="maaş"
+              min="10000"
+              max="80000"/>
+          </div>
+
+          <!-- Value butonun içine yazdığımızı gösterir -->
+          <input type="submit" value="Kaydet" />
+        </form>
+      </section>
+    </div>
+  </body>
+</html>
