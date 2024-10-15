@@ -1,0 +1,146 @@
+* {
+  /*Global ayarlar*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*padding ve border değerlerinin kapladığı alan hesaba katılmaz ve nesnelerin kapladığı alan sadece verdiğimiz genişlik kadar olacaktır. */
+  font-family: "Poppins", sans-serif;
+  text-decoration: none; /*https://fatihhayrioglu.com/metinlerin-alt%C4%B1ndaki-cizgileri-stillendirelim/*/
+  list-style: none; /*List elementlerin başında işaret olmaını istemediğimiz için none dedik*/
+}
+.header {
+  position: fixed; /*websayfasında bir elementin konumu sabitlemek için kullanabiliriz. Sabit konumladırılma ile yerleştirilmiş element belirtilen yerde çakılı kalacaktır.*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 35px 12%;
+  background-color: grey;
+  backdrop-filter: blur(
+    100px
+  ); /*arkaplan görseline/fonuna filtre uygulamak için kullanılır. Filtreler sadece arakafon'a uygulanıyor, içerik alanı bu işlemlerden etkilenmez*/
+  display: flex;
+  justify-content: space-between; /* Yatay eksende hizalanır burda iki yana eşit yaydık*/
+  align-items: center; /* Düşey eksende hizalanır burda elementleri ortaladık*/
+  z-index: 100; /*iki element üst üste geldiğinde öncelik sırasını belirtiriz. https://www.youtube.com/watch?v=xjS8M1bvq_8 */
+}
+.logo {
+  font-size: 25px;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s ease; /* Geçiş elementi olarak düşünebilriz => https://medium.com/kodcular/css-transition-nedir-b6139dd9b37c */
+}
+.logo:hover {
+  /* logonun üzerine mause geldiğinde */
+  color: orangered;
+  text-shadow: 0 0 25px orangered; /*Yazıya gölge veriyoruz => text-shadow: yatay-mesafe dikey-mesafe yumuşaklık renk; */
+  transform: scale(
+    2,
+    3
+  ); /* Yazının genişliğini 2 ile çarp, yüksekliğinize 3 ile çarp efektini oluşturur=> https://www.youtube.com/watch?v=yUGDI3XN5I4 */
+}
+span {
+  color: orangered;
+}
+.navbar a {
+  /*Linkler ile ilgili biçimler*/
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
+  margin: 0 20px;
+  border-bottom: 3px solid transparent; /* linklerin altına çizgi çeker*/
+  transition: 0.3s ease;
+}
+.navbar a:hover,
+.navbar a.active {
+  color: orangered;
+  border-bottom: 3px solid orangered;
+}
+.contact {
+  padding: 10px 28px;
+  color: brown;
+  background-color: white;
+  border: 2px solid transparent;
+  border-radius: 5px; /*Contact Me kenarına ovallik verir*/
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+.contact:hover {
+  background-color: orangered;
+  box-shadow: 0 0 25px orangered;
+  color: white;
+}
+.home {
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgb(241, 241, 241);
+  display: flex;
+  align-items: center;
+  gap: 7em;
+  padding: 30px 12% 0;
+}
+.home-content {
+  max-width: 800px;
+}
+.home-content h3 {
+  font-size: 42px;
+}
+.home-content h1 {
+  font-size: 62px;
+  line-height: 1.2;
+}
+.home-content p {
+  font-size: 18px;
+  margin: 25px 0 30px;
+}
+.btn-box {
+  width: 345px;
+  display: flex;
+  gap: 10px;
+}
+.btn-1 {
+  padding: 15px 28px;
+  background-color: black;
+  color: white;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.btn-1:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+}
+.btn-2 {
+  padding: 15px 28px;
+  background-color: orangered;
+  color: white;
+  border: 2px solid black;
+  border-radius: 8px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-2:hover {
+  background-color: white;
+  color: orangered;
+}
+.img-box img {
+  border-radius: 50%;
+  width: 500px;
+}
+::-webkit-scrollbar {
+  background-color: orangered;
+}
+::-webkit-scrollbar-thumb {
+  background-color: orangered;
+}
+::-webkit-scrollbar-track {
+  background-color: rbga(0, 0, 0, 0.6);
+}
