@@ -5,26 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        .container{
-            background-color: rgb(124, 124, 124);
-            width: 80%;
+        *{
+            border: 1px solid red;
+            /* hepsine çizgi çekti. */
         }
-        img{
-            margin: 30px;
-        }
-        .para1{
-            background-color: red;
-        }
+      .container {
+        background-color: rgb(124, 124, 124);
+        width: 80%;
+        margin: 30px auto;
+        text-align: center;
+      }
+      img {
+        margin: 30px 20px 10px 100px;
+        margin-right: 200px;
+        width: 500px;
+        /* margin sağ sol üst alt ölçüleri bunlar  silersek tek sayı girersek her yerini aynı alır.
+            picsum komutu ile resim geliyor. Yada margin left , margin top şeklinde tek tek girilebilir.*/
+        /* Eğer resmi ortalayacaksak yada başka bir şeyi width değeri varimeliliyiz sonra margin ile auto seçileblir */
+      }
+      .para1 {
+        background-color: red;
+        margin-left: 10px;
+        padding: 20px 10px 30px 50px;
+        border-top: 10px solid blue;
+        border-bottom: 5px solid green
+        ;
+        border: inset rgb(17, 221, 34);
+        
+        /* margin kırmızıyı sola kaydırdı , padding ise yazıyı kaydırarak alan açtı. width ile kırmızı alana ortalanıyor.*/
+        /* dotted nokta nokta olarak gösteriyor . inset içe dönük. outset dışa dönük . ridge çerçeve olarak gösteriyor .*/
+      }
+      .deneme {
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+      }
     </style>
   </head>
   <body>
     <h1>Morgin</h1>
     <div class="container">
-      <img src="" alt="" />
+      <img src="https://picsum.photos/id/684/600/400" alt="" />
 
       <p class="para1">BMW</p>
       <p class="para2">mersedes</p>
       <p class="para3">Audi</p>
     </div>
+    <di class="deneme"></di>
   </body>
 </html>
