@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Ruge+Boogie&family=Sixtyfour+Convergence&display=swap');
+
+@font-face{
+    font-family: "şuşi";
+    src:url("./reign.otf")
+}
+
+/* 1.Yöntem Css varolan fontlarını kullanma */
+.cssFont{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color:crimson;
+}
+
+/* 2.google font ile harici font kullanımı */
+.googleFont{
+    font-family: "Ruge Boogie", cursive;
+    color:rgb(7, 128, 126);
+}
+
+.googleFontImport{
+    font-family: "Sixtyfour Convergence", sans-serif;
+}
+
+.hariciFont{
+font-family: "şuşi";
+}
