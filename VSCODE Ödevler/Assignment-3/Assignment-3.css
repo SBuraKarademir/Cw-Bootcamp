@@ -1,0 +1,47 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  background-color: #333; /* Navbar arkaplan rengi */
+  overflow: hidden; /* Taşmaları önlemek için */
+  
+}
+
+nav a {
+  display: inline-block;
+  color: white; /* Yazı rengini beyaz yap */
+  text-align: center; /* Metni ortala */
+  padding: 14px 20px; /* Elemanların iç boşluğu */
+  text-decoration: none; /* Altını çizmemek için */
+  font-size: 17px;
+}
+
+nav a:hover {
+  background-color: #579957; /* Üzerine gelindiğinde renk değişikliği */
+}
+
+header {
+  text-align: center; /* Başlık ve paragrafı ortalamak için */
+  padding: 50px;
+  
+  background-color: #f4f4f4; /* Başlık arka plan rengi */
+  border: 2px solid red;
+  background-image: url(./Resimler/image.png);
+  height: 100vh;
+  background-repeat: no-repeat;
+  
+}
+
+h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+p {
+  font-size: 1.5em;
+  color: #555;
+}
