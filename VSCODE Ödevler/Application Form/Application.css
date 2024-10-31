@@ -1,0 +1,63 @@
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  background-color: #e0f7fa;
+
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  border: 2px solid white;
+  box-shadow: 2px 2px 15px white;
+
+  background-color: white;
+  width: 50%;
+  padding: 40px;
+  box-sizing: border-box;
+}
+header {
+  text-align: center;
+  color: #00796b;
+}
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+input[type="text"],
+input[type="date"],
+input[type="tel"],
+input[type="email"],
+datalist {
+  width: 100%;
+  border-radius: 5px;
+  height: 30px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+legend {
+  color: #00796b;
+  font-weight: bold;
+}
+fieldset {
+  border: 0.5px solid darkgray;
+  border-radius: 5px;
+}
+textarea {
+  width: 90%;
+  height: 8rem;
+}
+#gonder {
+  background-color: #00796b;
+  color: white;
+  width: 100%;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 20px;
+
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./Application.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/1034/1034131.png"
+          alt=""
+          width="80px"
+        />
+        <h1>Application Form</h1>
+      </header>
+      <section>
+        <form action="">
+          <div>
+            <label for="ad">Full Name:</label>
+            <input
+              type="text"
+              id="ad"
+              name="Full Name:"
+              placeholder="Your full name"
+            />
+          </div>
+          <div>
+            <label for="email">E-mail Address:</label>
+            <input
+              type="email"
+              name="E-mail Address:"
+              id="email"
+              placeholder="example@email.com"
+            />
+          </div>
+          <div>
+            <label for="numberr">Phone Number:</label>
+            <input
+              type="tel"
+              name="Phone Number:"
+              id="numberr"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
+              placeholder="xxx-xxx-xxxx"
+            />
+          </div>
+          <div>
+            <label for="dtarih">Date of Birth:</label>
+            <input
+              type="date"
+              name="Date_of_Birth"
+              id="dtarih"
+              min="1970-01-01"
+              max="2008-01-01"
+            />
+          </div>
+          <div>
+            <label for="gender">Gender:</label>
+            <input type="radio" name="male" id="male" />
+            <label for="male">Male</label>
+            <input type="radio" name="Female" id="female" />
+            <label for="female">Female</label>
+          </div>
+          <div>
+            <label for="ulke">Country</label>
+            <input
+              type="text"
+              name=""
+              id="ulke"
+              list="Ulke"
+              placeholder="Select your country"
+            />
+
+            <datalist id="Ulke">
+              <option value="GERMANY"></option>
+              <option value="USA"></option>
+              <option value="TURKEY"></option>
+            </datalist>
+          </div>
+          <div>
+            <fieldset>
+              <legend>Skills and Experince</legend>
+              <input type="checkbox" name="" id="skill" />
+              <label for="skill">Coding</label>
+              <input type="checkbox" name="" id="skill" />
+              <label for="skill">Design</label>
+              <input type="checkbox" name="" id="skill" />
+              <label for="skill">Maketting</label>
+              <label for="Exp">Brief Experience</label>
+              <textarea name="" id="Exp">Describe your experience...</textarea>
+            </fieldset>
+          </div>
+          <input type="button" name="" id="gonder" value="Submit Application" />
+        </form>
+      </section>
+    </div>
+  </body>
+</html>
