@@ -4,7 +4,12 @@
 //! Fonksiyon tanımlama yöntemleri
 // Function Declaration (Fonksiyon Bildirimi):
 // Function Expression (Fonksiyon İfadesi):
-// Arrow Function (Ok Fonksiyonları):
+// Arrow Function (Ok Fonksiyonları)
+
+/* -------------------------------------------------------------------------- */
+// recursive Function
+// IIFE (Immediately Invoked Function Expresion)
+// Callback Function
 
 
 // !-----------------------------------------------------------
