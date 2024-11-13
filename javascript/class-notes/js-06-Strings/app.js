@@ -384,6 +384,7 @@ let text3 = "Contact us at support@example.com or sales@example.com";
 
 let emailPattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
 
+
 let emails = text3.match(emailPattern);
 console.log(emails)
 
