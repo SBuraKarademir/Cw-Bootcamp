@@ -208,11 +208,29 @@ console.log(zamli1)
 //* =======================================
 //*           REDUCE
 //* =======================================
-// TODO
 
+//! Reduce dizi elemanlarını alıp tek sonuç dönderir.
+//? biriktirme işlemidir.
 
+// Syntax
+// array.reduce((accumulator(biriktireç), item, Index, array) => {
+//     işlemler
+//   }, initialValue);
+const salaries = [40000, 30000, 20000, 100000];
+const result=salaries.reduce((toplamMaas,maas)=>toplamMaas + maas,0)
+console.log("Toplam Maaş:",result)
 
+const sayilarim=[435,57,24,6,7]
+const carpim=sayilarim.reduce((carpimSonucu,item)=>carpimSonucu*item,1)
+console.log(`Çarpım Sonucu: ${carpim}`)
 
+// ? Stringlerde kullanımı
+const kelimeler=["merhaba","dünya","ben","javascript","öğrendim","Çekilin... :) "]
+const cumle=kelimeler.reduce((acc,currentValue)=>{
+  return acc+ " " + currentValue
+})
+
+console.log(cumle)
 
 //* =======================================
 //*               OTHERS
@@ -245,3 +263,24 @@ console.log(OverCheck)
 
 
 // FIND() , FINDLAST()
+//? Aldigi callback fonksiyonuna gore test gerceklestirir.
+//? Kosulu saglayan ilk dizi elemaninin dondurur.
+//? Eger hic bir eleman kosulu saglamazsa undefined dondurur.
+
+//? yaşı 30dan büyük olan ilk ve son elemanı göster
+const yaslar=[23,35,12,24,13,45,27,23]
+const bigger=yaslar.find((yas)=>yas>30)
+console.log(`30dan büyük olan ilk elemanımın yaşı:${bigger}`)
+
+const biggerLast=yaslar.findLast((item)=>item>30)
+console.log(`30dan büyük olan ilk elemanımın yaşı:${biggerLast}`)
+
+//Flat yapısı
+const arr1=[1,2,[3,4],[5,6,7]]
+// flat yapısı nested arrayi tek boyutlu arraye dönüştürür. 
+const flatArr=arr1.flat()
+console.log(flatArr)
+
+const arr2=[1,2,[3,4],[5,6,7],[9,10,[11]]]
+const flatArr2=arr2.flat(2)
+console.log(flatArr2)
