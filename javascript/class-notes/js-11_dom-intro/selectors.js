@@ -58,14 +58,73 @@ addBtn.value = "Submit"
 //*          GETELEMENTSBYTAGNAME()
 //*===========================================
 
+const allLi = document.getElementsByTagName("li")
+console.log(allLi) //HTMLCollection
+
+console.log(allLi[0].textContent)
+
+allLi[2].textContent = "javaScript"
+
+//! array-like grubunda direk array metotları kulanılamamz.
+// allLi.forEach((li) => console.log(li) );
+
+//? Toplu bir şekilde erişim için For of yapısıda kullanılabilir
+for (const li of allLi) {
+    console.log(li.textContent)
+}
+
+//? Çözüm olarak array-like grubu array'e çevirilebilriz.
+//? 1-Spread
+const arrAllli = [...allLi]
+console.log(arrAllli)
+arrAllli.forEach((li)=>li.style.color = "fuchsia")
+
+//? 2-Array.from()
+console.log(Array.from(allLi))
+Array.from(allLi).map((li)=>li.style.backgroundColor= "skyblue")
+
+
 //*===========================================
 //*          GETELEMENTSBYCLASSNAME()
 //*===========================================
+const myList = document.getElementsByClassName("list")
+console.log(myList)
+
+myList[0].innerText = "HTML dersleri"
+document.getElementsByClassName("item-list")[0].style.color = "teal"
 
 //* ==========================================
 //*              QUERYSELECTOR()
 //* ==========================================
+// ! Query Selector ile id, tag, class seçilebilir.
+//! bu secici akısta gördügü ilk elementi secer.
+
+//? id ile seçmek için
+console.log(document.querySelector("#btn"))
+
+//? Class ile Seçmek için
+console.log(document.querySelector(".item-list"))
+
+//?tag ile seçmek için
+console.log(document.querySelector("li")) //? ilk gördüğü elementi seçer
+
+//? CSS selectorleri querySelector ile kullanılabilir.
+const myH3 = document.querySelector("main section.item-list h3")
+console.log(myH3)
+
+
+const myGrayLi = document.querySelector(".item-list ul li:nth-child(3)")
+console.log(myGrayLi)
+myGrayLi.style.backgroundColor = "gray"
 
 //* ==========================================
 //*              QUERYSELECTORALL()
 //* ==========================================
+
+const liste = document.querySelectorAll(".item-list .list")
+console.log(liste)
+// querySelectorAll bir nodelist döndürür. NodeList dahili olarak  forEach metodunu barındırır. Ama istenirse spread veya Array.from() ile yine Arraye'dönüsüm yapılabilir.
+liste.forEach((li)=>console.log(li.innerText))
+
+const newList = [...liste]
+console.log(newList.map((e)=>e.style.backgroundColor = "orange"))
