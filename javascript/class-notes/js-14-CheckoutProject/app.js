@@ -5,7 +5,7 @@
 // 2-toplam değerleri tablosunun doldurulması
 // 3-silme işleme (remove)
 // 4-ürün ekleme ve çıkarma
-
+/* -------------------------------------------------------------------------- */
 //! 1-ürünlerin ekranda görüntülenmesi
 
 //Ürünlerim
@@ -13,22 +13,17 @@ let sepettekiler = [
   { name: "Vintage Backpack", price: 34.99, piece: 1, img: "./img/photo1.png" },
   { name: "Levi Shoes", price: 40.99, piece: 1, img: "./img/photo2.png" },
   { name: "Antique Clock", price: 69.99, piece: 1, img: "./img/photo3.jpg" },
-  { name: "Antique", price: 69.99, piece: 1, img: "./img/photo1.jpeg" },
-  { name: " Clock", price: 69.99, piece: 1, img: "./img/photo2.jpeg" },
 ];
 
-sepettekiler.forEach(({img,name,price,piece}) => {
+const tax = 0.18;
 
-    //1.yol urun.name, urun.img gibi bir yapı kullanmak
-    //2-    urun.name kullanmak yerine doğrudan name,img kullanmakiçin => destructure
-    // const {img,name,price,piece}=urun
-    //2.yol foreach bölümündeki parantez içinde destructure
-
+sepettekiler.forEach(({ img, name, price, piece }) => {
+  //1.yol urun.name, urun.img gibi bir yapı kullanmak
+  //2-    urun.name kullanmak yerine doğrudan name,img kullanmakiçin => destructure
+  // const {img,name,price,piece}=urun
+  //2.yol foreach bölümündeki parantez içinde destructure
 
   document.querySelector("#product-rowlari").innerHTML += `
-
-
-
     <div class="row ">
             <div class="col-md-7">
               <img
@@ -44,12 +39,15 @@ sepettekiler.forEach(({img,name,price,piece}) => {
 
                 <div class="ürün-price">
                   <p class="text-warning h2">$<span class="indirim-price">${price}</span>
-                    <span class="h5 text-dark text-decoration-line-through">${(price*0.3).toFixed(2)}</span>
+                    <span class="h5 text-dark text-decoration-line-through">${(
+                      price * 0.7
+                    ).toFixed(2)}</span>
                   </p>
                 </div>
 
                 <div
                   class="border border-1 border-dark shadow-lg d-flex justify-content-center p-2">
+
                   <div class="adet-controller">
                     <button class="btn btn-secondary btn-sm minus">
                       <i class="fas fa-minus"></i>
@@ -68,7 +66,12 @@ sepettekiler.forEach(({img,name,price,piece}) => {
                 </div>
 
                 <div class="mt-2">
-                  <span class="product-total"> ürün toplam </span>
+                <p>Ürün Toplam:<span class="product-total">${(
+                  price *
+                  0.7 *
+                  piece
+                ).toFixed(2)}</span></p>
+                  
                 </div>
               </div>
             </div>
@@ -78,3 +81,95 @@ sepettekiler.forEach(({img,name,price,piece}) => {
     
     `;
 });
+/* -------------------------------------------------------------------------- */
+
+calculateCardTotal();
+removeButton();
+increaseDecrease();
+
+//! 2-toplam değerleri tablosunun doldurulması
+function calculateCardTotal() {
+  const icerik = document.querySelectorAll(".product-total");
+  const toplamArray = Array.from(icerik).reduce(
+    (genelToplam, item) => genelToplam + Number(item.textContent),
+    0
+  );
+  console.log(toplamArray);
+
+  document.querySelector(".productstoplam").textContent =
+    toplamArray.toFixed(2);
+  document.querySelector(".vergi").textContent = (toplamArray * tax).toFixed(2);
+  shipping = toplamArray > 100 ? 0 : 15;
+  document.querySelector(".kargo").textContent = shipping;
+  document.querySelector(".toplam").textContent = (
+    toplamArray +
+    toplamArray * tax +
+    shipping
+  ).toFixed(2);
+}
+
+//! 3-silme işleme (remove)
+function removeButton() {
+  document.querySelectorAll(".remove-product").forEach((btn) => {
+    btn.onclick = () => {
+      //  btn.parentElement.parentElement.parentElement.parentElement.remove()
+      btn.closest(".row").remove();
+      calculateCardTotal();
+    };
+  });
+}
+
+// 4-ürün ekleme ve çıkarma
+
+function increaseDecrease() {
+  document.querySelectorAll(".adet-controller").forEach((ekleCikarAlani) => {
+    const plus = ekleCikarAlani.lastElementChild;
+    const minus = ekleCikarAlani.firstElementChild;
+    // const adet=plus.previousElementSibling;
+    const adet = ekleCikarAlani.children[1];
+
+    plus.onclick = () => {
+      adet.textContent = Number(adet.textContent) + 1;
+      plus.closest(".card-body").querySelector(".product-total").textContent =(
+        plus.closest(".card-body").querySelector(".indirim-price").textContent *
+        adet.textContent).toFixed()
+        calculateCardTotal()
+    };
+
+    minus.onclick=()=>{
+        adet.textContent = Number(adet.textContent) - 1;
+
+        if (adet.textContent<1){
+            alert("Üründen vaz mı geceçeksiniz. Bir daha mı düşünsenizyanında tarak bedava")
+            minus.closest(".row").remove()
+        }else{
+            minus.closest(".card-body").querySelector(".product-total").textContent =(
+            minus.closest(".card-body").querySelector(".indirim-price").textContent *
+            adet.textContent).toFixed(2)
+            calculateCardTotal()
+        }
+
+    }
+
+  });
+}
+
+//! BUBLING
+let flag=false;
+
+
+let h1=document.querySelector("h1")
+
+h1.onclick=()=>{
+    flag = !flag;
+
+    flag ? h1.textContent="CheckOut Project" : h1.textContent="almazsan ölürsün"
+}
+
+let header=document.querySelector("header");
+
+header.onclick=()=>{
+    flag = !flag;
+
+    flag ? h1.textContent="Arkaplan daha baskındır" : h1.textContent="Babana yol ver"
+}
