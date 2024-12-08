@@ -1,3 +1,9 @@
+/* -------------------------------------------------------------------------- */
+//!                                 WALLET APP                                 */
+/* -------------------------------------------------------------------------- */
+
+// localStorage için 4 tane method var. getItem, setItem,removeItem,clear
+
 //! -------------------------- Ekle Formu işlemleri -------------------------- */
 const gelirInput = document.querySelector("#gelirInput");
 const ekle = document.querySelector("#ekle");
@@ -9,7 +15,7 @@ console.log(gelirler);
 ekleFormu.addEventListener("submit", (e) => {
   e.preventDefault();
   gelirler = gelirler + Number(gelirInput.value);
-  gelirGoster.textContent = gelirler;
+ 
   localStorage.setItem("gelirim", gelirler);
 });
 
@@ -34,6 +40,7 @@ harcamaFormu.addEventListener("submit", (e) => {
   harcamaListesi.push(yeniHarcama);
   localStorage.setItem("harcamam", JSON.stringify(harcamaListesi));
   harcamalariTablodaGoster(yeniHarcama)
+//   hesaplaGoster()
 });
 
 harcamaListesi.forEach((harcama) => {
@@ -63,4 +70,50 @@ function harcamalariTablodaGoster({id,miktar,tarih,aciklama}) {
             localStorage.setItem("harcamam", JSON.stringify(harcamaListesi));
         }
     })
+    // hesaplaGoster()
 }
+
+// //! ------------------- Hesaplama Tablosunun Oluşturulması ------------------- */
+const harcamaGoster=document.querySelector("#harcamaGoster")
+const kalanGoster=document.querySelector("#kalanGoster")
+const ctx = document.getElementById('myChart');
+let grafik;
+
+
+function hesaplaGoster(){
+    const harcamaToplami=harcamaListesi.reduce((toplam,item)=>toplam + item.miktar,0)
+   const gelir=JSON.parse(localStorage.getItem("gelirim"))
+   gelirGoster.textContent = gelir
+   harcamaGoster.textContent=harcamaToplami
+   kalanGoster.textContent=gelir-harcamaToplami
+
+   if (grafik){
+    grafik.destroy()
+   }
+
+   grafik=new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Income', 'Expense', 'Your Money'],
+      datasets: [{
+        data: [gelir,harcamaToplami,gelir-harcamaToplami],
+        borderWidth: 1
+      }]
+    },
+  });
+}
+
+hesaplaGoster()
+
+//! --------------------------------- TEMİZLE -------------------------------- */
+const temizle=document.querySelector("#temizle")
+
+temizle.addEventListener("click",()=>{
+    gelirInput.value=""
+    harcamaListesi=[]
+    gelirim=0
+    harcamaTablosu.innerHTML=""
+    hesaplaGoster()
+    localStorage.removeItem("harcamam")
+    localStorage.removeItem("gelirim")
+})
