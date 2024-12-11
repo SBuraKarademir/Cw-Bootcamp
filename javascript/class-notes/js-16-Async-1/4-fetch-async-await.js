@@ -26,7 +26,16 @@ const defaultImage =
 
 const getData=async()=>{
 
-const res= await fetch("https://api.tvmaze.com/search/shows?q=girls");
+const res= await fetch("https://api.tvmaze.com/search/shows");
+
+// console.log(res);
+
+
+ if (!res.ok) {
+   //hata kontrolü yaptık
+   throw new Error("url de hata var");
+ }
+
 
  const data=    await res.json()
  
